@@ -17,4 +17,6 @@ Here are some controls and features:
 
     -   You can run from following curse;
 
+WARNING: Don't open it fullscreen or full window.
+
 Made for fun by me.
