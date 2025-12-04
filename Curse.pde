@@ -6,7 +6,7 @@ float dist = 0;
 
 float curseStatus = 0;
 
-boolean goCurse = true;
+boolean goCurse = false;
 
 class curse
 {
@@ -16,7 +16,8 @@ class curse
     curseX = constrain(random(width), 0 + curseMaxSize, width - curseMaxSize);
     curseY = constrain(random(height), 0 + curseMaxSize, height - curseMaxSize); 
     
-    curseStatus = random(0, 3);
+    goCurse = true;
+    curseStatus = int(random(1, 4));
   }
 
   void draw() {
@@ -25,7 +26,6 @@ class curse
       createcurse();
       playercinteract();
       curseEat();
-      
     }
   }
   
@@ -75,17 +75,19 @@ class curse
   
   void curseEat() 
   {
-      if(eatСurse(playerX, playerY, playerD, curseX, curseY, curseMinSize)){
-        if (curseStatus <= 1) {
-          playerD = 20;
-          counterTextSize = 7;
-        } else if (curseStatus <= 2) {
-          playerSp = 2;
-        } else if (curseStatus <= 3) {
-          goCurse = true;
-          setup();
-          redraw();
-        }
+   if(eatСurse(playerX, playerY, playerD, curseX, curseY, curseMinSize)){
+      if (curseStatus == 1) {
+        playerD = 20;
+        counterTextSize = 7;
+      } 
+      if (curseStatus == 2) {
+        playerSp = 2;
+      } 
+      goCurse = false;
+      if (curseStatus == 3) {
+        setup();
+        redraw();
       }
+    }
   }
 }

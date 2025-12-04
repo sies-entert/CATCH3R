@@ -35,11 +35,11 @@ class gameplay {
     borderObject.draw();
 
     ballsObject.draw();
+     
+    curseObject.draw();
 
     bonusObject.draw();
-      
-    curseObject.draw();
-    
+ 
     playerObject.draw();
     
     debugpanel();

@@ -8,6 +8,7 @@ class DebugPanel{
   }
   
   void draw(){
-  
+    background(backgr);
+    fill(fill);
   }
 }

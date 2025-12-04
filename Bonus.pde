@@ -2,7 +2,7 @@ float bonusX = 0, bonusY = 0, bonusMinSize = 5, bonusMaxSize = 20;
 
 float bonusCol = 0;
 
-boolean goBonus = true;
+boolean goBonus = false;
 
 class bonus
 {
@@ -13,6 +13,7 @@ class bonus
     bonusX = constrain(random(width), 0 + bonusMaxSize, width - bonusMaxSize);
     bonusY = constrain(random(height), 0 + bonusMaxSize, height - bonusMaxSize);
 
+    goBonus = true;
     bonusStatus = random(0, 2);
   }
 

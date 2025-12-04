@@ -112,5 +112,7 @@ void debugpanel() {
     println("Game Over: " + endGame);
     println("Balls: " + ballcount);
     println("Bonus: " + goBonus);
+    println("Curse: " + goCurse);
+    println("Curse Type: " + curseStatus);
     println("-------------------");
 }
