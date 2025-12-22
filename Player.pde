@@ -3,7 +3,6 @@ float playerX = 0, playerY = 0, playerD = 0, playerSp = 0;
 float counterX = 0, counterY = 0, counterTextSize = 0;
 
 int ballcount = 0;
-
 boolean leftPressed = false;
 boolean rightPressed = false;
 boolean upPressed = false;
@@ -11,7 +10,6 @@ boolean downPressed = false;
 
 class player
 {
-
   void setup() {
     playerX = width/2;
     playerY = height/2;

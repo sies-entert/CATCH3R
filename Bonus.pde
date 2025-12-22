@@ -2,6 +2,8 @@ float bonusX = 0, bonusY = 0, bonusMinSize = 5, bonusMaxSize = 20;
 
 float bonusCol = 0;
 
+float bonusStatus = 0;
+
 boolean goBonus = false;
 
 class bonus
@@ -64,5 +66,3 @@ class bonus
     }
   }
 }
-
-float bonusStatus = 0;

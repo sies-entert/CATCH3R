@@ -88,6 +88,7 @@ class curse
         setup();
         redraw();
       }
+      //if (curseStatus == 4) {}
     }
   }
 }

@@ -79,7 +79,7 @@ void mouseClicked()
 
 void keyTyped() {
 
-  if (currentState == StateOfGame.PAUSE && ballcount == 0) {
+  if (currentState == StateOfGame.PAUSE) {
     if (key == ' ') {
       currentState = StateOfGame.GAME;
       if (currentState == StateOfGame.GAME) {
@@ -102,7 +102,7 @@ void keyReleased() {
 
 void debugpanel() {
     println("-------------------");
-    println("PlayerPos: (" + playerX + ", " + playerY + ")");
+    //println("PlayerPos: (" + playerX + ", " + playerY + ")");
     println("CursePos: (" + curseX + ", " + curseY + ")");
     println("Curse speed: " + curseSp);
     println("Game run: " + startGame);
@@ -110,7 +110,7 @@ void debugpanel() {
     println("Game pause:" + pauseGame);
     println("Game reset: " + resetGame);
     println("Game Over: " + endGame);
-    println("Balls: " + ballcount);
+    //println("Balls: " + ballcount);
     println("Bonus: " + goBonus);
     println("Curse: " + goCurse);
     println("Curse Type: " + curseStatus);

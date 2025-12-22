@@ -4,7 +4,7 @@ curse curseObject;
 player playerObject;
 balls ballsObject;
 
-class gameplay {
+class gameplay{
 
   void setup() {
     borderObject = new border();
@@ -44,7 +44,7 @@ class gameplay {
     
     debugpanel();
 
-    for (int i = 0; i < circlen.length; i++)
+    for (int i = 0; i < ballsn.length; i++)
     {
       if (aus[i] && eat(playerX, playerY, playerD, x[i], y[i], sz))
       {
@@ -69,9 +69,6 @@ class gameplay {
   }
   
   void resetGame() {
-    /*timeSeconds = 0;
-    timeMinutes = 0;*/
-  
     borderObject.setup();
     bonusObject.setup();
     curseObject.setup();

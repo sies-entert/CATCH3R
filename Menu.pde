@@ -24,6 +24,8 @@ boolean goSettings = false;
 
 class menu {
 
+  balls ballsObject;
+  
   void setup() {
 
     size(400, 600);
@@ -78,7 +80,6 @@ class menu {
 
   void draw() {
       background(backgr);
-      
       drawName();
       drawStartButton();
       drawSettingsButton();

@@ -1,6 +1,10 @@
-class PlayerStatus{
+class PlayerStatus extends player{
   
-  void setup() {}
+  void setup() {
+
+  }
   
-  void draw() {}
+  void draw() {
+  
+  }
 }

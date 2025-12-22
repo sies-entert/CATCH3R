@@ -11,7 +11,7 @@ int fill = 255;
 
 color[] col = new color[21];
 
-int[] circlen = new int[21];
+int[] ballsn = new int[21];
 
 class balls {
 
@@ -19,7 +19,7 @@ class balls {
 
     ellipseMode(CENTER);
 
-    for (int i = 1; i < circlen.length; i++)
+    for (int i = 1; i < ballsn.length; i++)
     {
       x[i] = random(constrain(( ((boxRight - boxMinHighlight) - sz / 2) - ((boxLeft + boxMinHighlight) + sz / 2)), (boxLeft + boxMinHighlight * 2) + sz, (boxRight - boxMinHighlight * 2) - sz));
       y[i] = random(constrain(( ((boxDown - boxMinHighlight) - sz / 2) - ((boxUp + boxMinHighlight) + sz/2)), (boxUp + boxMinHighlight * 2) + sz, (boxDown - boxMinHighlight * 2) - sz));
@@ -27,8 +27,8 @@ class balls {
       aus[i] = true;
       col[i] = color(random(255), random(255), random(255));
 
-      spX[i] = random(-5, 5);
-      spY[i] = random(-5, 5);
+      spX[i] = random(1, 5);
+      spY[i] = random(1, 5);
 
       ballcount = i;
     }
@@ -37,7 +37,7 @@ class balls {
   void draw()
   {
     noStroke();
-    for (int i = 1; i < circlen.length; i++)
+    for (int i = 1; i < ballsn.length; i++)
     {
 
       if (aus[i])
