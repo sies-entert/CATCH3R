@@ -22,6 +22,7 @@ boolean darkwhite = true;
 
 menu menuObject;
 gameplay gameplayObject;
+debugPanel debugPanelObject;
 
 void setup() {
   size(400, 600);
@@ -36,6 +37,9 @@ void setup() {
   
   gameplayObject = new gameplay();
   gameplayObject.setup();
+
+  debugPanelObject = new debugPanel();
+  debugPanelObject.setup();
 }
 
 void draw() {
@@ -51,8 +55,11 @@ void draw() {
     case PAUSE:
       break;
     case RESET:
-      
+      break;
   }
+  
+  debugPanelObject.draw();
+  
   if (darkwhite == true) {
     fill = 255;
     backgr = 0;
