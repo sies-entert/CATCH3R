@@ -76,8 +76,8 @@ void mouseClicked()
     textAlign(CENTER);
     textSize(30);
     fill(255);
-    text("Press CMB or LMB to continue", width/2, height/2);
-    if(mouseButton == CENTER && currentState == StateOfGame.PAUSE) {
+    text("Press LMB to continue", width/2, height/2);
+    if(mouseButton == LEFT && currentState == StateOfGame.PAUSE) {
       currentState = StateOfGame.GAME;
     }
   }
