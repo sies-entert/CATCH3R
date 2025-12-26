@@ -27,8 +27,8 @@ debugPanel debugPanelObject;
 void setup() {
   size(400, 600);
 
-  surface.setTitle("Catcher");
-  surface.setResizable(true);
+  surface.setTitle("CATCH3R");
+  surface.setResizable(false);
 
   smooth(10);
   
@@ -57,8 +57,7 @@ void draw() {
     case RESET:
       break;
   }
-  
-  debugPanelObject.draw();
+
   
   if (darkwhite == true) {
     fill = 255;
@@ -73,12 +72,14 @@ void mouseClicked()
 {
   if (mouseButton == CENTER)
   {
-    startGame = !startGame;
-    pauseGame = !pauseGame;
+    currentState = StateOfGame.PAUSE;
     textAlign(CENTER);
     textSize(30);
     fill(255);
     text("Press CMB or LMB to continue", width/2, height/2);
+    if(mouseButton == CENTER && currentState == StateOfGame.PAUSE) {
+      currentState = StateOfGame.GAME;
+    }
   }
 
   menuObject.mouseClicked();
@@ -101,6 +102,10 @@ void keyTyped() {
 
 void keyPressed() {
   playerObject.keyPressed();
+  
+  if (key == 'e' || key == 'E') {
+    debugPanelObject.draw(); 
+  }
 }
 
 void keyReleased() {
@@ -109,7 +114,7 @@ void keyReleased() {
 
 void debugpanel() {
     println("-------------------");
-    //println("PlayerPos: (" + playerX + ", " + playerY + ")");
+    println("PlayerPos: (" + playerX + ", " + playerY + ")");
     println("CursePos: (" + curseX + ", " + curseY + ")");
     println("Curse speed: " + curseSp);
     println("Game run: " + startGame);
@@ -117,7 +122,7 @@ void debugpanel() {
     println("Game pause:" + pauseGame);
     println("Game reset: " + resetGame);
     println("Game Over: " + endGame);
-    //println("Balls: " + ballcount);
+    println("Balls: " + ballcount);
     println("Bonus: " + goBonus);
     println("Curse: " + goCurse);
     println("Curse Type: " + curseStatus);

@@ -18,34 +18,23 @@ class debugPanel {
     textSize(debugtextsize);
     textAlign(LEFT);
     empty =
-    "PlayerPos: (" + playerX + ", " + playerY + ")\n" + 
-    "CursePos: (" + curseX + ", " + curseY + ")\n" +
-    "Curse speed: " + curseSp + "\n" +
+    "Player Pos: (" + round(playerX) + ", " + round(playerY) + ")\n" + 
+    "Curse Pos: (" + round(curseX) + ", " + round(curseY) + ")\n" +
+    "Curse Type: " + round(curseStatus) + "\n" +
+    "Curse speed: " + round(curseSp) + "\n" +
+    "Bonus Pos: (" + round(bonusX) + ", " + round(bonusY) + ")\n" +
+    "Bonus Type: " + round(bonusStatus) + "\n" +
     "Game run: " + startGame + "\n" +
     "Menu run: " + goMenu + "\n" +
     "Game pause: " + pauseGame + "\n" +
     "Game reset: " + resetGame + "\n" +
     "Game Over: " + endGame + "\n" +
     "Bonus: " + goBonus + "\n" +
-    "Curse: " + goCurse + "\n" +
-    "Curse Type: " + curseStatus;
+    "Curse: " + goCurse + "\n";
     
     text(empty, x + boxMaxHighlight, y + boxMaxHighlight);
-    }
+  }
+  
+  void drawDebugBack() {
+  }
  }   
-    
-    /*println("-------------------");
-    //println("PlayerPos: (" + playerX + ", " + playerY + ")");
-    println("CursePos: (" + curseX + ", " + curseY + ")");
-    println("Curse speed: " + curseSp);
-    println("Game run: " + startGame);
-    println("Menu run: " + goMenu);
-    println("Game pause:" + pauseGame);
-    println("Game reset: " + resetGame);
-    println("Game Over: " + endGame);
-    //println("Balls: " + ballcount);
-    println("Bonus: " + goBonus);
-    println("Curse: " + goCurse);
-    println("Curse Type: " + curseStatus);
-    println("-------------------");
-    */

@@ -127,7 +127,7 @@ class menu {
       textAlign(CENTER, CENTER);
       fill(fill);
       textSize(20);
-      text("Made by sies-entert. No copyrights, just make fun", creditsX, creditsY - (creditsY / 15));
+      text("Made by sies-entert.\n No copyrights, just make fun", creditsX, creditsY - (creditsY / 15));
   }
   
   void drawButton(float ButtonX, float ButtonY, float currentButtonWidth, float currentButtonHeight, float currentTextSize, String ButtonText) {
