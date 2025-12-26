@@ -1,4 +1,4 @@
-A gameplay build on catching balls.
+DO you want to have YOUR BALLZ together and chill during boring days? Then try it now with CATCH3R.
 
 It's made with Processing 4.3 - 4.4.7, which runs on Java.
 
@@ -15,8 +15,10 @@ Here are some controls and features:
 
     -   Using CMB you can pause the game;
 
-    -   You can run from following curse;
+    -   You need to run from following curse;
+    
+    -   Type "e" on your keyboard to see if game runs perfectly.
 
-WARNING: Don't open it fullscreen or full window.
+WARNING: Don't open it fullscreen or full window. (in progress)
 
 Made for fun by me.
