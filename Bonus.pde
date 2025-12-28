@@ -16,7 +16,7 @@ class bonus
     bonusY = constrain(random(height), 0 + bonusMaxSize, height - bonusMaxSize);
 
     goBonus = true;
-    bonusStatus = random(0, 2);
+    bonusStatus = int(random(0, 2));
   }
 
   void draw()
@@ -57,10 +57,10 @@ class bonus
   }
   void bonusEat() {
     if (eatBonus(playerX, playerY, playerD, bonusX, bonusY, bonusMinSize)){
-      if (bonusStatus <= 1) {
+      if (bonusStatus == 1) {
         playerD = 80;
         counterTextSize = 28;
-      } else if (bonusStatus <= 2) {
+      } else if (bonusStatus == 2) {
         playerSp = 8;
       }
     }

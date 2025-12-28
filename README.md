@@ -24,3 +24,7 @@ Here are some controls and features:
 WARNING: Don't open it fullscreen or full window. (in progress)
 
 Made for fun by me.
+
+All steps you acn find here: 
+
+https://github.com/sies-entert/CATCH3R.wiki.git
