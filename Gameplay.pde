@@ -52,6 +52,7 @@ class gameplay{
         if (!aus[i])
         {
           ballcount--;
+          delay(30);
           if (ballcount == 0)
           {
             currentState = StateOfGame.PAUSE;

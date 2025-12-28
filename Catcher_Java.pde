@@ -1,5 +1,4 @@
-int timeSeconds = 0;
-int timeMinutes = 0;
+int timeSeconds, timeMinutes;
 
 boolean[] aus = new boolean[21];
 
@@ -13,11 +12,6 @@ enum StateOfGame {
 
 StateOfGame currentState = StateOfGame.MENU;
 
-boolean startGame = false;
-boolean stateGame = false;
-boolean pauseGame = false;
-boolean resetGame = false;
-boolean endGame = false;
 boolean darkwhite = true;
 
 menu menuObject;
@@ -26,6 +20,8 @@ debugPanel debugPanelObject;
 
 void setup() {
   size(400, 600);
+  
+  timeSeconds = 0;
 
   surface.setTitle("CATCH3R");
   surface.setResizable(false);
@@ -51,6 +47,7 @@ void draw() {
       break;
     case GAME:
       gameplayObject.draw();
+      debugPanelObject.draw();
       break;
     case PAUSE:
       break;
@@ -102,10 +99,6 @@ void keyTyped() {
 
 void keyPressed() {
   playerObject.keyPressed();
-  
-  if (key == 'e' || key == 'E') {
-    debugPanelObject.draw(); 
-  }
 }
 
 void keyReleased() {
@@ -117,11 +110,7 @@ void debugpanel() {
     println("PlayerPos: (" + playerX + ", " + playerY + ")");
     println("CursePos: (" + curseX + ", " + curseY + ")");
     println("Curse speed: " + curseSp);
-    println("Game run: " + startGame);
     println("Menu run: " + goMenu);
-    println("Game pause:" + pauseGame);
-    println("Game reset: " + resetGame);
-    println("Game Over: " + endGame);
     println("Balls: " + ballcount);
     println("Bonus: " + goBonus);
     println("Curse: " + goCurse);

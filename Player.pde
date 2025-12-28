@@ -29,16 +29,16 @@ class player
     counterX = playerX;
     counterY = playerY;
 
+    fill(backgr);
+    stroke(fill);
+    strokeWeight(2);
+    circle(playerX, playerY, playerD);
+
     fill(fill);
     textSize(counterTextSize);
     strokeWeight(4);
     textAlign(CENTER, CENTER);
     text(ballcount, counterX, counterY);
-
-    noFill();
-    stroke(fill);
-    strokeWeight(2);
-    circle(playerX, playerY, playerD);
 
     if (leftPressed) {
       playerX -= playerSp;

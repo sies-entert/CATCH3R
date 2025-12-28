@@ -3,7 +3,7 @@ boolean menuMouse (float boxLeft, float boxRight, float boxUp, float boxDown)
   if (mouseX >= boxLeft &&
     mouseX <= boxRight - boxLeft &&
     mouseY >= boxUp &&
-    mouseY <= boxDown - boxUp && !startGame)
+    mouseY <= boxDown - boxUp && currentState == StateOfGame.MENU)
   {
     return true;
   }
@@ -47,7 +47,7 @@ boolean eatСurse(float playerX, float playerY, float playerD, float curseX, flo
 
 boolean playerOutOfBorder(float playerX, float playerY, float playerD, float boxLeft, float boxRight, float boxUp, float boxDown)
 {
-  if (startGame && playerX - playerD / 2 <= boxLeft ||
+  if (currentState == StateOfGame.GAME && playerX - playerD / 2 <= boxLeft ||
     playerX + playerD / 2 >= boxLeft + boxRight ||
     playerY - playerD / 2 <= boxUp ||
     playerY + playerD / 2 >= boxUp + boxDown) {
