@@ -11,12 +11,20 @@ float settingButtonX, settingButtonY,
       settingButtonMinWidth, settingButtonMaxWidth,
       settingButtonMinHeight, settingButtonMaxHeight,
       currentSettingButtonWidth, currentSettingButtonHeight;
+
+float exitButtonX, exitButtonY,
+      exitButtonMinWidth, exitButtonMaxWidth,
+      exitButtonMinHeight, exitButtonMaxHeight,
+      currentExitButtonWidth, currentExitButtonHeight;
   
 float startTextMinSize, startTextMaxSize,
       currentStartTextSize;
 
 float settingTextMinSize, settingTextMaxSize,
       currentSettingTextSize;
+
+float exitTextMinSize, exitTextMaxSize,
+      currentExitTextSize;
 
 boolean goMenu = true;
 
@@ -76,6 +84,21 @@ class menu {
     settingTextMinSize = 24;
     settingTextMaxSize = 36;
     currentSettingTextSize = settingTextMinSize; 
+    
+    exitButtonX = width / 2;
+    exitButtonY = height / 1.5;
+    
+    exitButtonMinWidth = 100;
+    exitButtonMinHeight = 60;
+    currentExitButtonWidth = exitButtonMinWidth;
+    currentExitButtonHeight = exitButtonMinHeight;
+    
+    exitButtonMaxWidth = exitButtonMinWidth * 1.5;
+    exitButtonMaxHeight = exitButtonMinHeight + (exitButtonMinHeight / 2.5);
+    
+    exitTextMinSize = 24;
+    exitTextMaxSize = 36;
+    currentExitTextSize = exitTextMinSize;
     }
 
   void draw() {
@@ -83,6 +106,7 @@ class menu {
       drawName();
       drawStartButton();
       drawSettingsButton();
+      drawExitButton();
       drawCredits();
       
       if (menuMouse(boxLeft, boxRight, boxUp, boxDown)) {
@@ -194,6 +218,33 @@ class menu {
       currentSettingButtonHeight = constrain(currentSettingButtonHeight, settingButtonMinHeight, settingButtonMaxHeight);
       currentSettingTextSize = constrain(currentSettingTextSize, settingTextMinSize, settingTextMaxSize);
   }
+  
+  void drawExitButton() {
+    drawButton(exitButtonX, exitButtonY, currentExitButtonWidth, currentExitButtonHeight, currentExitTextSize, "Exit");
+    boolean hovering = OverButton(exitButtonX, exitButtonY, currentExitButtonWidth, currentExitButtonHeight);
+    if (hovering) {
+        if (currentExitButtonWidth < exitButtonMaxWidth && 
+            currentExitButtonHeight < exitButtonMaxHeight && 
+            currentExitTextSize < exitTextMaxSize) {
+          currentExitButtonWidth += 2.25;
+          currentExitButtonHeight += 1.25;
+          currentExitTextSize += 0.2;
+        }
+      } else {
+        if (currentExitButtonWidth > exitButtonMinWidth || 
+            currentExitButtonHeight > exitButtonMinHeight || 
+            currentExitTextSize > exitTextMinSize) {
+          currentExitButtonWidth -= 2.25;
+          currentExitButtonHeight -= 1.25;
+          currentExitTextSize -= 0.2;
+        }
+      }
+      currentExitButtonWidth = constrain(currentExitButtonWidth, exitButtonMinWidth, exitButtonMaxWidth);
+      currentExitButtonHeight = constrain(currentExitButtonHeight, exitButtonMinHeight, exitButtonMaxHeight);
+      currentExitTextSize = constrain(currentExitTextSize, exitTextMinSize, exitTextMaxSize);
+    
+    
+  }
 
   void mouseClicked() {
     if (OverButton(startButtonX, startButtonY, currentStartButtonWidth, currentStartButtonHeight) && mouseButton == LEFT) {
@@ -202,6 +253,9 @@ class menu {
 
     if (OverButton(settingButtonX, settingButtonY, currentSettingButtonWidth, currentSettingButtonHeight) && mouseButton == LEFT) {
       currentState = StateOfGame.SETTINGS;
+    } 
+    if (OverButton(exitButtonX, exitButtonY, currentExitButtonWidth, currentExitButtonHeight) && mouseButton == LEFT) {
+      currentState = StateOfGame.STOP;
     } 
   }
 }

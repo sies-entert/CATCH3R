@@ -7,7 +7,8 @@ enum StateOfGame {
     SETTINGS,
     GAME,
     PAUSE,
-    RESET
+    RESET,
+    STOP
 };  
 
 StateOfGame currentState = StateOfGame.MENU;
@@ -51,6 +52,9 @@ void draw() {
     case PAUSE:
       break;
     case RESET:
+      break;
+    case STOP:
+      exit();
       break;
   }
 
