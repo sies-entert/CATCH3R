@@ -10,6 +10,9 @@ class debugPanel {
   }
   
   void draw(){
+  }
+  
+  void showDebugPanel() {
     if (key == 'e' || key == 'E') {
       drawDebugPanel();
     }
@@ -20,6 +23,7 @@ class debugPanel {
     textSize(debugtextsize);
     textAlign(LEFT);
     empty =
+    "Frames Per Second: " + ceil(frameRate) + "\n" +
     "Player Pos: (" + round(playerX) + ", " + round(playerY) + ")\n" + 
     "Curse Pos: (" + round(curseX) + ", " + round(curseY) + ")\n" +
     "Curse Type: " + round(curseStatus) + "\n" +

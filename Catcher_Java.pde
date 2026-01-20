@@ -16,7 +16,6 @@ boolean darkwhite = true;
 
 menu menuObject;
 gameplay gameplayObject;
-debugPanel debugPanelObject;
 
 void setup() {
   size(400, 600);

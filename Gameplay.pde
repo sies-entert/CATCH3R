@@ -3,6 +3,7 @@ bonus bonusObject;
 curse curseObject;
 player playerObject;
 balls ballsObject;
+debugPanel debugPanelObject;
 
 class gameplay{
 
@@ -21,6 +22,9 @@ class gameplay{
   
     playerObject = new player();
     playerObject.setup();
+  
+    debugPanelObject = new debugPanel();
+    debugPanelObject.setup();
   }
 
   void draw() {
@@ -29,8 +33,6 @@ class gameplay{
     noStroke();
 
     textSize(24);
-    textSize(15);
-    text(ceil(frameRate), width/20, height / 20); 
 
     borderObject.draw();
 
@@ -42,7 +44,7 @@ class gameplay{
  
     playerObject.draw();
     
-    debugpanel();
+    debugPanelObject.showDebugPanel();
 
     for (int i = 0; i < ballsn.length; i++)
     {
