@@ -16,7 +16,7 @@ class bonus
     bonusY = constrain(random(height), 0 + bonusMaxSize, height - bonusMaxSize);
 
     goBonus = true;
-    bonusStatus = int(random(0, 2));
+    bonusStatus = int(random(1, 2));
   }
 
   void draw()
