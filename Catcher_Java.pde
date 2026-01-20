@@ -1,6 +1,7 @@
 int timeSeconds, timeMinutes;
 
 boolean[] aus = new boolean[21];
+PFont font;
 
 enum StateOfGame {
     MENU,
@@ -18,8 +19,12 @@ boolean darkwhite = true;
 menu menuObject;
 gameplay gameplayObject;
 
+
+
 void setup() {
   size(400, 600);
+  
+  font = createFont("./extras/fonts/Tourney_SemiCondensed-Bold.ttf", 16);
   
   timeSeconds = 0;
 
@@ -39,6 +44,7 @@ void setup() {
 }
 
 void draw() {
+  textFont(font);
   switch (currentState){
     case MENU:
       menuObject.draw();

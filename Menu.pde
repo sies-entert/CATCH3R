@@ -58,7 +58,7 @@ class menu {
     startButtonX = width / 2;
     startButtonY = height / 3;
 
-    startButtonMinWidth = 100;
+    startButtonMinWidth = 140;
     startButtonMinHeight = 60;
     currentStartButtonWidth = startButtonMinWidth;
     currentStartButtonHeight = startButtonMinHeight;
@@ -73,7 +73,7 @@ class menu {
     settingButtonX = width / 2;
     settingButtonY = height / 2;
 
-    settingButtonMinWidth = 100;
+    settingButtonMinWidth = 140;
     settingButtonMinHeight = 60;
     currentSettingButtonWidth = settingButtonMinWidth;
     currentSettingButtonHeight = settingButtonMinHeight;
@@ -88,7 +88,7 @@ class menu {
     exitButtonX = width / 2;
     exitButtonY = height / 1.5;
     
-    exitButtonMinWidth = 100;
+    exitButtonMinWidth = 140;
     exitButtonMinHeight = 60;
     currentExitButtonWidth = exitButtonMinWidth;
     currentExitButtonHeight = exitButtonMinHeight;
