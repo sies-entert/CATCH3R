@@ -329,13 +329,6 @@ class menu {
       curcreditsButtonW = constrain(curcreditsButtonW, creditsButtonMinW, creditsButtonMaxW);
       curcreditsButtonH = constrain(curcreditsButtonH, creditsButtonMinH, creditsButtonMaxH);
       curcreditsTextSize = constrain(curcreditsTextSize, creditsTextMinSize, creditsTextMaxSize);
-      
-      if (currentMState == StateOfMenu.CREDITS) {
-        creditsButtonText[0] = creditsButtonText[1];
-      }
-      else {
-        creditsButtonText[0] = "Credits";
-      }
   }
 
   void mouseClicked() {
@@ -350,11 +343,14 @@ class menu {
     }
     if (OverButton(creditsButtonX, creditsButtonY, curcreditsButtonW, curcreditsButtonH) && mouseButton == LEFT) {
       currentMState = StateOfMenu.CREDITS;
-      if (OverButton(creditsButtonX, creditsButtonY, curcreditsButtonW, curcreditsButtonH) && mouseButton == LEFT) {
-          if (creditsButtonText[0] == creditsButtonText[1]){
-          currentMState = StateOfMenu.MAIN;
-        } 
+      if (creditsButtonText[0].equals(creditsButtonText[1])) {
+        currentMState = StateOfMenu.MAIN;
+        creditsButtonText[0] = "Credits";
       } 
+      else {
+        currentMState = StateOfMenu.CREDITS;
+        creditsButtonText[0] = creditsButtonText[1];
+      }
     }
   }
 }
