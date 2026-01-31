@@ -21,7 +21,7 @@ class bonus
 
   void draw()
   {
-    if (goBonus) {
+    if (currentState == StateOfGame.GAME) {
       drawbonus();
       bonusEat();
     }

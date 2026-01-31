@@ -16,6 +16,11 @@ float exitButtonX, exitButtonY,
       exitButtonMinWidth, exitButtonMaxWidth,
       exitButtonMinHeight, exitButtonMaxHeight,
       currentExitButtonWidth, currentExitButtonHeight;
+      
+float creditsButtonX, creditsButtonY,
+      creditsButtonMinW, creditsButtonMinH,
+      creditsButtonMaxW, creditsButtonMaxH,
+      curcreditsButtonW, curcreditsButtonH;
   
 float startTextMinSize, startTextMaxSize,
       currentStartTextSize;
@@ -26,17 +31,34 @@ float settingTextMinSize, settingTextMaxSize,
 float exitTextMinSize, exitTextMaxSize,
       currentExitTextSize;
 
+float creditsTextMinSize, creditsTextMaxSize,
+      curcreditsTextSize;
+
+String creditsText;
+
+String[] creditsButtonText = new String[2];
+
+float showCreditsX, showCreditsY,
+      showCreditsW, showCreditsH;
+
 boolean goMenu = true;
 
 boolean goSettings = false;
 
-class menu {
+enum StateOfMenu {
+    MAIN,
+    SETTINGS,
+    CREDITS,
+    STOP,
+};  
 
+StateOfMenu currentMState = StateOfMenu.MAIN;
+
+class menu {
+  
   balls ballsObject;
   
   void setup() {
-
-    size(400, 600);
     background(backgr);
     fill(fill);
 
@@ -99,15 +121,52 @@ class menu {
     exitTextMinSize = 24;
     exitTextMaxSize = 36;
     currentExitTextSize = exitTextMinSize;
+    
+    creditsButtonX = width / 2;
+    creditsButtonY = height / 1.15;
+    
+    creditsButtonMinW = 240;
+    creditsButtonMinH = 60;    
+    curcreditsButtonW = creditsButtonMinW;
+    curcreditsButtonH = creditsButtonMinH;
+    
+    creditsButtonMaxW = creditsButtonMinW * 1.5;
+    creditsButtonMaxH = creditsButtonMinH + (creditsButtonMinH / 2.5);
+    
+    creditsTextMinSize = 24;
+    creditsTextMaxSize = 36;
+    curcreditsTextSize = creditsTextMinSize;
+    
+    showCreditsX = width / 2;
+    showCreditsY = height / 2;
+    
+    showCreditsW = width / 2;
+    showCreditsH = height / 2;
+    
+    creditsButtonText[0] = "Credits";
+    creditsButtonText[1] = "Return";
     }
 
   void draw() {
       background(backgr);
       drawName();
-      drawStartButton();
-      drawSettingsButton();
-      drawExitButton();
-      drawCredits();
+      
+      switch (currentMState){
+        case MAIN:
+          drawStartButton();
+          drawSettingsButton();
+          drawExitButton();
+          drawCreditsButton();
+          break;
+        case SETTINGS:
+          break;
+        case STOP:
+          exit();
+          break;
+        case CREDITS:
+          showCredits();
+          drawCreditsButton();
+      }
       
       if (menuMouse(boxLeft, boxRight, boxUp, boxDown)) {
         boxRight = width;
@@ -142,16 +201,18 @@ class menu {
       text("CATCH3R", nameX, nameY);
   }
   
-  void drawCredits(){
+  void showCredits(){
+    if (currentMState == StateOfMenu.CREDITS){
       rectMode(CENTER);
       fill(backgr);
       strokeWeight(4);
-      rect(creditsX, creditsY, creditsBoxWidth, creditsBoxHeight);
+      rect(showCreditsX, showCreditsY, showCreditsW, showCreditsH);
         
       textAlign(CENTER, CENTER);
       fill(fill);
       textSize(20);
-      text("Made by sies-entert.\n No copyrights, just make fun", creditsX, creditsY - (creditsY / 15));
+      text("Made by sies-entert.\n No copyrights, just make fun", showCreditsX, showCreditsY);
+    }
   }
   
   void drawButton(float ButtonX, float ButtonY, float currentButtonWidth, float currentButtonHeight, float currentTextSize, String ButtonText) {
@@ -242,20 +303,58 @@ class menu {
       currentExitButtonWidth = constrain(currentExitButtonWidth, exitButtonMinWidth, exitButtonMaxWidth);
       currentExitButtonHeight = constrain(currentExitButtonHeight, exitButtonMinHeight, exitButtonMaxHeight);
       currentExitTextSize = constrain(currentExitTextSize, exitTextMinSize, exitTextMaxSize);
-    
-    
+  }
+  
+  void drawCreditsButton() 
+  {
+    drawButton(creditsButtonX, creditsButtonY, curcreditsButtonW, curcreditsButtonH, curcreditsTextSize, creditsButtonText[0]);
+    boolean hovering = OverButton(creditsButtonX, creditsButtonY, curcreditsButtonW, curcreditsButtonH);
+    if (hovering) {
+        if (curcreditsButtonW < creditsButtonMaxW && 
+            curcreditsButtonH < creditsButtonMaxH && 
+            curcreditsTextSize < creditsTextMaxSize) {
+          curcreditsButtonW += 2.25;
+          curcreditsButtonH += 1.25;
+          curcreditsTextSize += 0.2;
+        }
+      } else {
+        if (curcreditsButtonW > creditsButtonMinW || 
+            curcreditsButtonH > creditsButtonMinH || 
+            curcreditsTextSize > creditsTextMinSize) {
+          curcreditsButtonW -= 2.25;
+          curcreditsButtonH -= 1.25;
+          curcreditsTextSize -= 0.2;
+        }
+      }
+      curcreditsButtonW = constrain(curcreditsButtonW, creditsButtonMinW, creditsButtonMaxW);
+      curcreditsButtonH = constrain(curcreditsButtonH, creditsButtonMinH, creditsButtonMaxH);
+      curcreditsTextSize = constrain(curcreditsTextSize, creditsTextMinSize, creditsTextMaxSize);
+      
+      if (currentMState == StateOfMenu.CREDITS) {
+        creditsButtonText[0] = creditsButtonText[1];
+      }
+      else {
+        creditsButtonText[0] = "Credits";
+      }
   }
 
   void mouseClicked() {
     if (OverButton(startButtonX, startButtonY, currentStartButtonWidth, currentStartButtonHeight) && mouseButton == LEFT) {
       currentState = StateOfGame.GAME;
     }
-
     if (OverButton(settingButtonX, settingButtonY, currentSettingButtonWidth, currentSettingButtonHeight) && mouseButton == LEFT) {
-      currentState = StateOfGame.SETTINGS;
+      currentMState = StateOfMenu.SETTINGS;
     } 
     if (OverButton(exitButtonX, exitButtonY, currentExitButtonWidth, currentExitButtonHeight) && mouseButton == LEFT) {
-      currentState = StateOfGame.STOP;
-    } 
+      currentMState = StateOfMenu.STOP;
+    }
+    if (OverButton(creditsButtonX, creditsButtonY, curcreditsButtonW, curcreditsButtonH) && mouseButton == LEFT) {
+      currentMState = StateOfMenu.CREDITS;
+      if (OverButton(creditsButtonX, creditsButtonY, curcreditsButtonW, curcreditsButtonH) && mouseButton == LEFT) {
+          if (creditsButtonText[0] == creditsButtonText[1]){
+          currentMState = StateOfMenu.MAIN;
+        } 
+      } 
+    }
   }
 }

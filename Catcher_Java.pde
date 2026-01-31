@@ -5,11 +5,9 @@ PFont font;
 
 enum StateOfGame {
     MENU,
-    SETTINGS,
     GAME,
     PAUSE,
-    RESET,
-    STOP
+    RESET
 };  
 
 StateOfGame currentState = StateOfGame.MENU;
@@ -19,12 +17,12 @@ boolean darkwhite = true;
 menu menuObject;
 gameplay gameplayObject;
 
-
-
 void setup() {
-  size(400, 600);
+  size(600, 800);
   
   font = createFont("./extras/fonts/Tourney_SemiCondensed-Bold.ttf", 16);
+  
+  frameRate(60);
   
   timeSeconds = 0;
 
@@ -49,8 +47,6 @@ void draw() {
     case MENU:
       menuObject.draw();
       break;
-    case SETTINGS:
-      break;
     case GAME:
       gameplayObject.draw();
       debugPanelObject.draw();
@@ -59,11 +55,7 @@ void draw() {
       break;
     case RESET:
       break;
-    case STOP:
-      exit();
-      break;
   }
-
   
   if (darkwhite == true) {
     fill = 255;

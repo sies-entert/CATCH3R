@@ -10,6 +10,8 @@ class debugPanel {
   }
   
   void draw(){
+    debugtextsize = width / 30;
+    showDebugPanel();
   }
   
   void showDebugPanel() {

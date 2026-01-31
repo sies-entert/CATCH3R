@@ -21,7 +21,7 @@ class curse
   }
 
   void draw() {
-    if (currentState == StateOfGame.GAME && goCurse) {
+    if (currentState == StateOfGame.GAME) {
       curseSp = playerSp * 0.5;
       createcurse();
       playercinteract();

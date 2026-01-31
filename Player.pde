@@ -7,6 +7,7 @@ boolean leftPressed = false;
 boolean rightPressed = false;
 boolean upPressed = false;
 boolean downPressed = false;
+boolean spacePressed = false;
 
 class player
 {
@@ -64,6 +65,9 @@ class player
         playerY = boxUp + boxMinHighlight / 2;
       }
     }
+    if (spacePressed) {
+    
+    }
   }
 
   void keyPressed() {
@@ -78,6 +82,9 @@ class player
     }
     if (keyCode == DOWN || key == 's' || key == 'S') {
       downPressed = true;
+    }
+    if (keyCode == ' ') {
+      spacePressed = true;
     }
   }
 
@@ -94,6 +101,15 @@ class player
     if (keyCode == DOWN || key == 's' || key == 'S') {
       downPressed = false;
     }
+    if (keyCode == ' ') {
+      spacePressed = false;
+    }
   }
+  
+ /* void keyTyped() {
+    if (keyCode == ' ') {
+       
+    }   
+  }*/
   
 }
