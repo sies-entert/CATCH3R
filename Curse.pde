@@ -70,6 +70,9 @@ class curse
       else if(eatBonus(playerX, playerY, playerD, bonusX, bonusY, bonusMinSize) && playerSp == 8){
           curseSp = curseSp * 1.75;
       }
+      if(eatСurse(playerX, playerY, playerD, curseX, curseY, curseMinSize)){
+        goCurse = false;
+      }
     }
   }
   
@@ -83,7 +86,6 @@ class curse
       if (curseStatus == 2) {
         playerSp = 2;
       } 
-      goCurse = false;
       if (curseStatus == 3) {
         setup();
         redraw();
