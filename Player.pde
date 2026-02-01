@@ -9,11 +9,15 @@ boolean upPressed = false;
 boolean downPressed = false;
 boolean spacePressed = false;
 
-class player
-{
+class player {
+  float powersize, powercounter;
+  float powerlineX, powerlineY, 
+        powerlineW, powerlineH,
+        powerlinefillW, powerlinefillH;
+  
   void setup() {
-    playerX = width/2;
-    playerY = height/2;
+    playerX = width / 2;
+    playerY = height / 2;
     playerD = 40;
     playerSp = 4;
     counterTextSize = 14;
@@ -21,26 +25,38 @@ class player
     playerX = constrain(playerX, (boxLeft + boxMinHighlight / 2) + playerD / 2, (boxRight - boxMinHighlight / 2) - (playerD / 2));
     playerY = constrain(playerY, (boxUp + boxMinHighlight / 2) + playerD / 2, (boxDown - boxMinHighlight / 2) - (playerD / 2));
 
-    counterX = playerX;
-    counterY = playerY;
+    powersize = playerD * 3;
   }
 
   void draw() {
 
     counterX = playerX;
     counterY = playerY;
-
+    
+    checkPressed();
+    
+    drawPlayer();
+    drawCounter();
+  }
+  
+  void drawPlayer() {
+        
     fill(backgr);
     stroke(fill);
     strokeWeight(2);
     circle(playerX, playerY, playerD);
-
+  }
+  
+  void drawCounter() {
+    
     fill(fill);
     textSize(counterTextSize);
     strokeWeight(4);
     textAlign(CENTER, CENTER);
     text(ballcount, counterX, counterY);
-
+  }
+  
+  void checkPressed() {
     if (leftPressed) {
       playerX -= playerSp;
       if (playerX <= boxLeft + boxMinHighlight / 2) {
@@ -104,12 +120,5 @@ class player
     if (keyCode == ' ') {
       spacePressed = false;
     }
-  }
-  
- /* void keyTyped() {
-    if (keyCode == ' ') {
-       
-    }   
-  }*/
-  
+  } 
 }

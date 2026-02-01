@@ -5,7 +5,7 @@ player playerObject;
 balls ballsObject;
 debugPanel debugPanelObject;
 
-class gameplay{
+class gameplay {
 
   void setup() {
     borderObject = new border();
@@ -44,7 +44,8 @@ class gameplay{
  
     playerObject.draw();
     
-    debugPanelObject.showDebugPanel();
+    debugPanelObject.draw();
+    
 
     for (int i = 0; i < ballsn.length; i++)
     {
@@ -58,13 +59,13 @@ class gameplay{
           if (ballcount == 0)
           {
             currentState = StateOfGame.PAUSE;
-              if (currentState == StateOfGame.PAUSE){
-                fill(fill);
-                textSize(40);
-                text("GameOver", width/2, height/3);
-                textSize(30);
-                text("Press SPACE to Restart", width/2, height/2);
-              }
+            if (currentState == StateOfGame.PAUSE){
+              fill(fill);
+              textSize(40);
+              text("GameOver", width/2, height/3);
+              textSize(30);
+              text("Press SPACE to Restart", width/2, height/2);
+            }
           }
         }
       }

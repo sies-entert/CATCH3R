@@ -7,10 +7,10 @@ class debugPanel {
   String empty;
   
   void setup(){
+    debugtextsize = width / 30;
   }
   
   void draw(){
-    debugtextsize = width / 30;
     showDebugPanel();
   }
   
@@ -40,4 +40,4 @@ class debugPanel {
   
   void drawDebugBack() {
   }
- }   
+}   
