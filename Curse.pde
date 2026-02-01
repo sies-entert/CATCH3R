@@ -21,7 +21,7 @@ class curse
   }
 
   void draw() {
-    if (currentState == StateOfGame.GAME) {
+    if (currentState == StateOfGame.GAME && goCurse) {
       curseSp = playerSp * 0.5;
       createcurse();
       playercinteract();
@@ -70,15 +70,13 @@ class curse
       else if(eatBonus(playerX, playerY, playerD, bonusX, bonusY, bonusMinSize) && playerSp == 8){
           curseSp = curseSp * 1.75;
       }
-      if(eatСurse(playerX, playerY, playerD, curseX, curseY, curseMinSize)){
-        goCurse = false;
-      }
     }
   }
   
   void curseEat() 
   {
    if(eatСurse(playerX, playerY, playerD, curseX, curseY, curseMinSize)){
+      goCurse = false;
       if (curseStatus == 1) {
         playerD = 20;
         counterTextSize = 7;
@@ -86,6 +84,7 @@ class curse
       if (curseStatus == 2) {
         playerSp = 2;
       } 
+
       if (curseStatus == 3) {
         setup();
         redraw();

@@ -50,13 +50,10 @@ class bonus
       {
         grow = true;
       }
-      if (eatBonus(playerX, playerY, playerD, bonusX, bonusY, bonusMinSize))
-      {
-        goBonus = false;
-      }
   }
   void bonusEat() {
     if (eatBonus(playerX, playerY, playerD, bonusX, bonusY, bonusMinSize)){
+      goBonus = false;
       if (bonusStatus == 1) {
         playerD = 80;
         counterTextSize = 28;
