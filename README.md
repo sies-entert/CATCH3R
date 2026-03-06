@@ -1,4 +1,4 @@
-JDK 17 is REQUIRED!
+JDK 17 is REQUIRED! 
 
 DO you want to have YOUR BALLZ together and chill during boring days? Then try it now with CATCH3R.
 
