@@ -27,4 +27,4 @@ Made for fun by me.
 
 All steps you can find here: 
 
-https://github.com/sies-entert/CATCH3R.wiki.git
+https://github.com/sies-entert/CATCH3R/wiki/ROADMAP
